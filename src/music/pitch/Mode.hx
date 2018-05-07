@@ -1,11 +1,12 @@
 package music.pitch;
 
-Enum Mode {
-    Ionian,
-    Dorian,
-    Phrygian,
-    Lydian,
-    Mixolydian,
-    Aeolian,
-    Locrian
+// Standard western modes
+enum Mode {
+    Ionian;
+    Dorian;
+    Phrygian;
+    Lydian;
+    Mixolydian;
+    Aeolian;
+    Locrian;
 }

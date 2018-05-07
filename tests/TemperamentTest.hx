@@ -1,6 +1,6 @@
 package;
 
-import music.pitch.EqualTemperament;
+import music.pitch.temperament.EqualTemperament;
 import music.pitch.Note;
 import tink.unit.Assert.*;
 
