@@ -1,4 +1,4 @@
-package music.pitch.temperament;
+package grig.pitch.temperament;
 
 class EqualTemperament implements MidiCompatibleTemperament
 {

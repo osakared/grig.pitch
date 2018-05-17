@@ -1,4 +1,4 @@
-# haxe_music_pitch
+# grig.pitch
 
 !!! This is alpha currently. Don't depend on the interface not changing!
 

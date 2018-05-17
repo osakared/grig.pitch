@@ -1,9 +1,9 @@
 package;
 
-import music.pitch.Key;
-import music.pitch.Mode;
-import music.pitch.Note;
-import music.pitch.Scale;
+import grig.pitch.Key;
+import grig.pitch.Mode;
+import grig.pitch.Note;
+import grig.pitch.Scale;
 import tink.unit.Assert.*;
 
 @:asserts

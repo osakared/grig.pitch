@@ -1,4 +1,4 @@
-package music.pitch.temperament;
+package grig.pitch.temperament;
 
 interface MidiCompatibleTemperament
 {

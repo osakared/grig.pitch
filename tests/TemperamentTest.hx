@@ -1,7 +1,7 @@
 package;
 
-import music.pitch.temperament.EqualTemperament;
-import music.pitch.Note;
+import grig.pitch.temperament.EqualTemperament;
+import grig.pitch.Note;
 import tink.unit.Assert.*;
 
 @:asserts

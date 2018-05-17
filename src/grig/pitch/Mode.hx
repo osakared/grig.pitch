@@ -1,4 +1,4 @@
-package music.pitch;
+package grig.pitch;
 
 // Standard western modes
 enum Mode {
