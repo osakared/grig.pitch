@@ -1,0 +1,17 @@
+{
+  "name": "grig.pitch",
+  "license": "MIT",
+  "tags": [
+    "harmony",
+    "pitch",
+    "music-theory",
+    "grig"
+  ],
+  "classPath": "src",
+  "contributors": [
+    "thomasjwebb"
+  ],
+  "releasenote": "initial release",
+  "version": "0.0.0",
+  "dependencies": {}
+}
