@@ -8,7 +8,9 @@ class EqualTemperament implements MidiCompatibleTemperament
     public function pitchFromMidiNote(midiNote:Int):Float
     {
         // TODO add caching or pre-compute, calculating roots every time is ridiculous
-        return basePitch * Math.pow(2.0, (midiNote - baseNote.midiNote) / 12.0);
+        // Calculating exp separately is needed to fix bug on php target for some reason
+        var exp:Float = (midiNote - baseNote.midiNote) / 12.0;
+        return basePitch * Math.pow(2.0, exp);
     }
 
     public function new(_baseNote:Note, _basePitch:Float)

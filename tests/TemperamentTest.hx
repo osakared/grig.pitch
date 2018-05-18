@@ -19,6 +19,7 @@ class TemperamentTest {
     public function testEqualTemperament()
     {
         var temperament = new EqualTemperament(baseNote, basePitch);
+        trace(temperament.pitchFromMidiNote(76));
         return assert(Math.abs(temperament.pitchFromMidiNote(76) - 659.26) < 0.01);
     }
 
