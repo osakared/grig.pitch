@@ -1,5 +1,8 @@
 # grig.pitch
 
+[![Build Status](https://travis-ci.org/osakared/grig.pitch.svg?branch=master)](https://travis-ci.org/osakared/grig.pitch)
+[![Gitter](https://badges.gitter.im/haxe-grig/Lobby.svg)](https://gitter.im/haxe-grig/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 !!! This is alpha currently. Don't depend on the interface not changing!
 
 Just deals with calculating and otherwise dealing with pitches. Getting frequency from midi notes, etc.
