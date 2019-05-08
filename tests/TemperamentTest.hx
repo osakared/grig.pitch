@@ -2,6 +2,7 @@ package;
 
 import grig.pitch.temperament.Arbitrary;
 import grig.pitch.temperament.Equal;
+import grig.pitch.temperament.Just;
 import grig.pitch.temperament.Pythagorean;
 import grig.pitch.Note;
 import tink.unit.Assert.*;
@@ -41,6 +42,12 @@ class TemperamentTest {
     {
         var temperament = new Pythagorean(baseNote, basePitch);
         return assert(temperament.pitchFromNote(Note.fromMidiNote(64)) == 330.0);
+    }
+
+    public function testJust()
+    {
+        var temperament = new Just(baseNote, basePitch);
+        return assert(temperament.pitchFromNote(Note.fromMidiNote(73)) == 550.0);
     }
 
 }
