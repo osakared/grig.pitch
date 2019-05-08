@@ -25,6 +25,6 @@ abstract Key(Int) from Int to Int {
     @:op(A+B)
     public inline function add(rhs:Int):Key
     {
-        return this + rhs;
+        return new Key(this + rhs);
     }
 }
