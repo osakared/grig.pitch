@@ -18,13 +18,20 @@ abstract Key(Int) from Int to Int {
 
     public inline function new(val:Int)
     {
-        while (val > 11) val -= 11;
-        this = val;
+        while (val < 0) val += 12;
+        this = val % 12;
     }
 
     @:op(A+B)
-    public inline function add(rhs:Int):Key
+    private inline function add(rhs:Int):Key
     {
         return new Key(this + rhs);
     }
+
+    @:op(A-B)
+    private inline function subtract(rhs:Int)
+    {
+        return new Key(this - rhs);
+    }
+
 }
