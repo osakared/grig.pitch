@@ -3,6 +3,8 @@ package grig.pitch;
 class Scale
 {
     public var root(default, null):Key;
+    public var third(get, never):Key; // for convenience
+    public var fifth(get, never):Key;
     public var mode(default, null):Mode;
 
     public var notes(get, never):Array<Key>;
@@ -21,6 +23,22 @@ class Scale
     {
         root = _root;
         mode = _mode;
+    }
+
+    public function get(degree:Int):Key
+    {
+        while (degree < 0) degree += 12;
+        return notes[degree % 12];
+    }
+
+    private function get_third():Key
+    {
+        return notes[2];
+    }
+
+    private function get_fifth():Key
+    {
+        return notes[4];
     }
 
     private function get_notes():Array<Key>
