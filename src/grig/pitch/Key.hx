@@ -2,7 +2,8 @@ package grig.pitch;
 
 // western keys
 @:enum
-abstract Key(Int) from Int to Int {
+abstract Key(Int) from Int to Int
+{
     var C = 0;
     var Db = 1;
     var D = 2;

@@ -1,7 +1,8 @@
 package grig.pitch;
 
 // Standard western modes
-enum Mode {
+enum Mode
+{
     Ionian;
     Dorian;
     Phrygian;
