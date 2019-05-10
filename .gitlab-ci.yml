@@ -27,4 +27,4 @@ release:
   only:
     - tags
   script:
-    - bash ./release_haxelib.sh $HAXELIB_PWD
+    - "bash ./release_haxelib.sh $HAXELIB_PWD"
