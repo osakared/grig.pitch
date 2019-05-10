@@ -10,12 +10,13 @@ os:
 
 install:
   - npm install -g lix
+  - lix download
+  - sudo apt-get install php7.1-cli php7.1-mysql
 
 script:
-  - lix download
   - if [[ "$TRAVIS_OS_NAME" != "windows" ]]; then haxelib run travix python ; fi
   - haxelib run travix node
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then haxelib run travix js       ; fi
+  - # if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then haxelib run travix js       ; fi
   - if [[ "$TRAVIS_OS_NAME" != "windows" ]]; then haxelib run travix java   ; fi
   - haxelib run travix cpp
   - haxelib run travix cs
