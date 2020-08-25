@@ -35,4 +35,23 @@ abstract Key(Int) from Int to Int
         return new Key(this - rhs);
     }
 
+    public inline function toString():String
+    {
+        return switch this {
+            case C: 'C';
+            case Db: 'C#';
+            case D: 'D';
+            case Eb: 'D#';
+            case E: 'E';
+            case F: 'F';
+            case Gb: 'F#';
+            case G: 'G';
+            case Ab: 'G#';
+            case A: 'A';
+            case Bb: 'A#';
+            case B: 'B';
+            default: 'unknown';
+        }
+    }
+
 }
