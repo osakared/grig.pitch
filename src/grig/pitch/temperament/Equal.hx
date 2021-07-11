@@ -9,7 +9,7 @@ class Equal implements NoteCompatible
     {
         // TODO add caching or pre-compute, calculating roots every time is ridiculous
         // Calculating exp separately is needed to fix bug on php target for some reason
-        var exp:Float = (note.midiNote - baseNote.midiNote) / 12.0;
+        var exp:Float = (note - baseNote) / 12.0;
         return basePitch * Math.pow(2.0, exp);
     }
 

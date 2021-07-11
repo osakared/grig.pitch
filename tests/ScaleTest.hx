@@ -5,7 +5,8 @@ import grig.pitch.Scale;
 import tink.unit.Assert.*;
 
 @:asserts
-class ScaleTest {
+class ScaleTest
+{
 
     public function new()
     {

@@ -8,8 +8,8 @@ import grig.pitch.Note;
 import tink.unit.Assert.*;
 
 @:asserts
-class TemperamentTest {
-
+class TemperamentTest
+{
     private var baseNote:Note;
     private var basePitch:Float;
 

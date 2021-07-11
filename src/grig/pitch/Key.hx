@@ -30,7 +30,7 @@ abstract Key(Int) from Int to Int
     }
 
     @:op(A-B)
-    private inline function subtract(rhs:Int)
+    private inline function subtract(rhs:Int):Key
     {
         return new Key(this - rhs);
     }
@@ -52,6 +52,17 @@ abstract Key(Int) from Int to Int
             case B: 'B';
             default: 'unknown';
         }
+    }
+
+    public function isWhiteKey():Bool
+    {
+        return if ([C, D, E, F, G, A, B].contains(this)) true;
+        else false;
+    }
+
+    public function isBlackKey():Bool
+    {
+        return !isWhiteKey();
     }
 
 }

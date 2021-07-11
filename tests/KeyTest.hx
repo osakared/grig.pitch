@@ -4,7 +4,8 @@ import grig.pitch.Key;
 import tink.unit.Assert.*;
 
 @:asserts
-class KeyTest {
+class KeyTest
+{
 
     public function new()
     {
@@ -32,6 +33,12 @@ class KeyTest {
     {
         var key = C;
         return assert(key - 1 == B);
+    }
+
+    public function testWhiteKey()
+    {
+        var key = Db;
+        return assert(key.isBlackKey());
     }
 
 }
