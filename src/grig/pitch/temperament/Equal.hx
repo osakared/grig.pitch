@@ -2,14 +2,14 @@ package grig.pitch.temperament;
 
 class Equal implements NoteCompatible
 {
-    private var baseNote:Note;
+    private var baseNote:Pitch;
     private var basePitch:Float;
 
-    public function pitchFromNote(note:Note):Float
+    public function pitchFromNote(note:Pitch):Float
     {
         // TODO add caching or pre-compute, calculating roots every time is ridiculous
         // Calculating exp separately is needed to fix bug on php target for some reason
-        var exp:Float = (note - baseNote) / 12.0;
+        var exp:Float = (note.toMidiNote() - baseNote.toMidiNote()) / 12.0;
         return basePitch * Math.pow(2.0, exp);
     }
 
@@ -21,7 +21,7 @@ class Equal implements NoteCompatible
         return basePitch * Math.pow(2.0, exp);
     }
 
-    public function new(_baseNote:Note, _basePitch:Float)
+    public function new(_baseNote:Pitch, _basePitch:Float)
     {
         baseNote = _baseNote;
         basePitch = _basePitch;

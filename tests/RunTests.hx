@@ -10,8 +10,8 @@ class RunTests
     {
         Runner.run(TestBatch.make([
             new KeyTest(),
-            new NoteTest(),
-            new ScaleTest(),
+            new PitchClassTest(),
+            new PitchTest(),
             new TemperamentTest(),
         ])).handle(Runner.exit);
     }

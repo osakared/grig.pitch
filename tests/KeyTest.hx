@@ -1,5 +1,6 @@
 package;
 
+import grig.pitch.PitchClass;
 import grig.pitch.Key;
 import tink.unit.Assert.*;
 
@@ -11,34 +12,35 @@ class KeyTest
     {
     }
 
-    public function testAdd()
+    public function testCMajor()
     {
-        var key = C;
-        return assert(key + 4 == E);
+        var key = new Key(C, Ionian);
+        return assert(key.notes[2] == E);
     }
 
-    public function testAddWrap()
+    public function testCMinor()
     {
-        var key = C;
-        return assert(key + 13 == Db);
+        var key = new Key(C, Aeolian);
+        return assert(key.notes[2] == Eb);
     }
 
-    public function testSubtract()
+    public function testPhrygian()
     {
-        var key = A;
-        return assert(key - 1 == Ab);
+        var key = new Key(C, Phrygian);
+        return assert(key.notes[1] == Db);
     }
 
-    public function testSubtractWrap()
+    public function testDegree()
     {
-        var key = C;
-        return assert(key - 1 == B);
+        var key = new Key(C, Ionian);
+        return assert(key.get(2) == key.get(14) && key.get(14) == key.get(-10) && key.get(-10) == E);
     }
 
-    public function testWhiteKey()
+    public function testConvenience()
     {
-        var key = Db;
-        return assert(key.isBlackKey());
+        var major = new Key(A, Ionian);
+        var minor = new Key(A, Aeolian);
+        return assert(major.third == Db && minor.third == C);
     }
 
 }

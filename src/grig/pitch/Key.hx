@@ -1,68 +1,68 @@
 package grig.pitch;
 
-// western keys
-@:enum
-abstract Key(Int) from Int to Int
+class Key
 {
-    var C = 0;
-    var Db = 1;
-    var D = 2;
-    var Eb = 3;
-    var E = 4;
-    var F = 5;
-    var Gb = 6;
-    var G = 7;
-    var Ab = 8;
-    var A = 9;
-    var Bb = 10;
-    var B = 11;
+    public var root(default, null):PitchClass;
+    public var third(get, never):PitchClass; // for convenience
+    public var fifth(get, never):PitchClass;
+    public var mode(default, null):Mode;
 
-    public inline function new(val:Int)
+    public var notes(get, never):Array<PitchClass>;
+    public var intervals(get, never):Array<Int>;
+
+    // modes in terms of how many semitones between intervals, starting with root
+    public static var IONIAN_INTERVALS(default, null) =     [2, 2, 1, 2, 2, 2, 1]; // major
+    public static var DORIAN_INTERVALS(default, null) =     [2, 1, 2, 2, 2, 1, 2];
+    public static var PHRYGIAN_INTERVALS(default, null) =   [1, 2, 2, 2, 1, 2, 2];
+    public static var LYDIAN_INTERVALS(default, null) =     [2, 2, 2, 1, 2, 2, 1];
+    public static var MIXOLYDIAN_INTERVALS(default, null) = [2, 2, 1, 2, 2, 1, 2];
+    public static var AEOLIAN_INTERVALS(default, null) =    [2, 1, 2, 2, 1, 2, 2]; // minor
+    public static var LOCRIAN_INTERVALS(default, null) =    [1, 2, 2, 1, 2, 2, 2];
+
+    public function new(_root:PitchClass, _mode:Mode)
     {
-        while (val < 0) val += 12;
-        this = val % 12;
+        root = _root;
+        mode = _mode;
     }
 
-    @:op(A+B)
-    private inline function add(rhs:Int):Key
+    public function get(degree:Int):PitchClass
     {
-        return new Key(this + rhs);
+        while (degree < 0) degree += 12;
+        return notes[degree % 12];
     }
 
-    @:op(A-B)
-    private inline function subtract(rhs:Int):Key
+    private function get_third():PitchClass
     {
-        return new Key(this - rhs);
+        return notes[2];
     }
 
-    public inline function toString():String
+    private function get_fifth():PitchClass
     {
-        return switch this {
-            case C: 'C';
-            case Db: 'C#';
-            case D: 'D';
-            case Eb: 'D#';
-            case E: 'E';
-            case F: 'F';
-            case Gb: 'F#';
-            case G: 'G';
-            case Ab: 'G#';
-            case A: 'A';
-            case Bb: 'A#';
-            case B: 'B';
-            default: 'unknown';
+        return notes[4];
+    }
+
+    private function get_notes():Array<PitchClass>
+    {
+        var distanceFromRoot = 0;
+        return [
+            for (interval in intervals) {
+                var oldDistance = distanceFromRoot;
+                distanceFromRoot += interval;
+                PitchClass.fromSemitones(root + oldDistance);
+            }
+        ];
+    }
+
+    private function get_intervals():Array<Int>
+    {
+        return switch (mode) {
+            case Ionian:     IONIAN_INTERVALS;
+            case Dorian:     DORIAN_INTERVALS;
+            case Phrygian:   PHRYGIAN_INTERVALS;
+            case Lydian:     LYDIAN_INTERVALS;
+            case Mixolydian: MIXOLYDIAN_INTERVALS;
+            case Aeolian:    AEOLIAN_INTERVALS;
+            case Locrian:    LOCRIAN_INTERVALS;
         }
     }
-
-    public function isWhiteKey():Bool
-    {
-        return if ([C, D, E, F, G, A, B].contains(this)) true;
-        else false;
-    }
-
-    public function isBlackKey():Bool
-    {
-        return !isWhiteKey();
-    }
-
 }
