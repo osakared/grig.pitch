@@ -12,7 +12,7 @@
   "contributors": [
     "thomasjwebb"
   ],
-  "releasenote": "initial release",
-  "version": "0.0.1",
+  "releasenote": "changed interface",
+  "version": "0.0.2",
   "dependencies": {}
 }
