@@ -107,8 +107,7 @@ enum abstract PitchClass(Int) to Int
 
     public function isWhiteKey():Bool
     {
-        return if ([C, D, E, F, G, A, B].contains(new PitchClass(this))) true;
-        else false;
+        return [C, D, E, F, G, A, B].contains(new PitchClass(this));
     }
 
     public function isBlackKey():Bool
